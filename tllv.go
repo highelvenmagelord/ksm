@@ -129,7 +129,7 @@ func NewCkcContentKeyDurationBlock(LeaseDuration, RentalDuration uint32) *CkcCon
 	keyTypeOut := make([]byte, 4)
 
 	//binary.BigEndian.PutUint32(keyTypeOut, contentKeyValidForLease)
-	binary.BigEndian.PutUint32(keyTypeOut, contentKeyPersisted)
+	binary.BigEndian.PutUint32(keyTypeOut, contentKeyPersistedWithlimited)
 
 	value = append(value, LeaseDurationOut...)
 	value = append(value, rentalDurationOut...)
@@ -142,7 +142,7 @@ func NewCkcContentKeyDurationBlock(LeaseDuration, RentalDuration uint32) *CkcCon
 		TLLVBlock:      tllv,
 		LeaseDuration:  LeaseDuration,
 		RentalDuration: RentalDuration,
-		KeyType:        contentKeyValidForLease, //TODO: KeyType does not use
+		KeyType:        contentKeyPersistedWithlimited, //TODO: KeyType does not use
 	}
 }
 
